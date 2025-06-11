@@ -1,0 +1,36 @@
+#!/bin/bash
+# Exercise 5: Hard - System Command Locator
+# This script locates the 'ls' command and summarizes its location and options in a file named CommandLocationsAndSummaries.txt in the home directory.
+#Picked 3 commands: ls, grep, cd
+cd ~
+# Locate the 'ls' command and summarize its location and options    
+
+whereis ls > ~/CommandLocationsAndSummaries.txt
+man ls >> ~/CommandLocationsAndSummaries.txt
+# Append the summary of the 'ls' command options to the file
+echo -e "\nSummary of 'ls' command options:\n" >> ~/CommandLocationsAndSummaries.txt
+
+whereis grep >> ~/CommandLocationsAndSummaries.txt
+man grep >> ~/CommandLocationsAndSummaries.txt
+# Append the summary of the 'grep' command options to the file
+echo -e "\nSummary of 'grep' command options:\n" >> ~/CommandLocationsAndSummaries.txt
+
+
+whereis cd >> ~/CommandLocationsAndSummaries.txt
+man cd >> ~/CommandLocationsAndSummaries.txt
+# Append the summary of the 'cd' command options to the file
+echo -e "\nSummary of 'cd' command options:\n" >> ~/CommandLocationsAndSummaries.txt
+
+
+#2 Alternative approach TO reduce code duplication
+#!/bin/bash
+cd ~
+# Create or clear the CommandLocationsAndSummaries.txt file
+# Add loop to iterate through commands
+commands=("ls" "grep" "cd")
+for cmd in "${commands[@]}"; do
+    whereis "$cmd" >> ~/CommandLocationsAndSummaries.txt
+    man "$cmd" >> ~/CommandLocationsAndSummaries.txt
+    # Append the summary of the command options to the file
+    echo -e "\nSummary of '$cmd' command options:\n" >> ~/CommandLocationsAndSummaries.txt
+done

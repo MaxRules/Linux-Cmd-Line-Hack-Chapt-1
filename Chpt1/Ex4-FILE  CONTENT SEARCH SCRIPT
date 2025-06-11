@@ -1,0 +1,33 @@
+#!/bin/bash
+#1 File content search script
+# Chapter 1
+# Exercise 3: File Content Search
+#Within the /var/log directory, search for files that contain the word "error" and redirect the results to a file named ErrorLog.txt in your home directory.
+cd /var/log
+# Search for files containing the word "error" and redirect the output to ErrorLog.txt in the home directory
+grep -r "error" /var/log > ~/ErrorLog.txt
+# Ensure the script has executed successfully
+if [ $? -eq 0 ]; then
+    echo "Search completed successfully."
+else
+    echo "An error occurred during the search."
+fi
+# Notify the user that the search is complete
+echo "Search for 'error' in /var/log completed. Results saved to ~/ErrorLog.txt"
+
+# Notify the user about the location of the results
+echo "You can find the results in the file ~/ErrorLog.txt"
+
+# Ensure the script is executable
+chmod +x ~/ErrorLog.txt
+
+# Notify the user about the script execution
+echo "File content search script executed successfully."    
+
+#End of the script
+
+#2 (Alternative approach)
+#!/bin/bash
+# Search for the word "error" in all log files in /var/log and redirect the output to ErrorLogs.txt in the home directory
+cd /var/log
+grep "error" *.log > ~/ErrorLogs.txt

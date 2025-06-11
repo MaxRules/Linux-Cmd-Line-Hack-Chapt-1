@@ -1,0 +1,7 @@
+#!/bin/bash
+#Using command line to Navigate the home directory, list all files and directories and then use the man command to learn about the ls command options.
+#Summarize the three options you find useful in a file named LsOptions.txt in your home directory, withouut using any redirection to create the file content
+#Exercise 1: Navigating and Understanding the Home Directory
+cd ~ && ls -la
+man ls -l, -a, -h
+touch LsOptions.txt && echo “(I Love Linux scripting)” > LsOptions.txt

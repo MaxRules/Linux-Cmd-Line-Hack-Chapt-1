@@ -1,0 +1,20 @@
+#!/bin/bash
+# etc script
+# Chapter 1
+# Exercise 3: Medium - Directory Deep Dive
+# A script that navigates from home directory to /etc, list all the .conf files, and redirects this list named ConfFilesList.txt 
+cd ~ && mkdir ConfFilesList.txt
+
+cd /etc && ls -l *.conf
+
+# Redirect the list of .conf files to a file named ConfFilesList.txt in the home directory
+ls *.conf > ~/ConfFilesList.txt
+cd ~ && echo "List of .conf files in /etc has been saved to ~/ConfFilesList.txt"
+# Notify the user about the location of the results
+echo "You can find the list of .conf files in the file ~/ConfFilesList.txt"
+# Ensure the script is executable
+chmod +x ~/ConfFilesList.txt
+# Notify the user about the script execution
+echo "ConfFilesList.txt has been created and is executable."
+cat ~/ConfFilesList.txt
+# End of the script``

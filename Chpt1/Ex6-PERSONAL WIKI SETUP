@@ -1,0 +1,23 @@
+# Create a personal Wikidirectory named MyWiki in the Documents folder
+#!/bin/bash
+# Create directories for each subject in the MyWiki directory
+mkdir -p ~/Documents/MyWiki/{Linux, Networking, Scripting}
+# Within each directory, create a README.txt file with the following command:
+cd ~/Documents/MyWiki/Linux && echo "Linux Overview" > README.txt
+cd ~/Documents/MyWiki/Networking && echo "Networking Overview" > README.txt
+cd ~/Documents/MyWiki/Scripting && echo "Scripting Overview" > README.txt
+
+
+# Notify the user about the creation of the MyWiki directory and its contents
+echo "MyWiki directory created with subdirectories and README files."
+
+
+#2 Alternative approach to create the directories and files in one command
+#!/bin/bash
+mkdir -p ~/Documents/MyWiki/{Linux,Networking,Scripting} && \
+cd ~/Documents/MyWiki/Linux && echo "Linux Overview" > README.txt && \
+cd ~/Documents/MyWiki/Networking && echo "Networking Overview" > README.txt && \
+cd ~/Documents/MyWiki/Scripting && echo "Scripting Overview" > README.txt
+
+# Notify the user about the creation of the MyWiki directory and its contents
+echo "MyWiki directory created with subdirectories and README files in one command."

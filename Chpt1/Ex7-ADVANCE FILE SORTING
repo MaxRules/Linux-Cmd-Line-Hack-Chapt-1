@@ -1,6 +1,6 @@
-# File: Ex7-ADVANCE FILE SORTING
-#!/bin/bash 
-# Create a script to sort files in your downloads directory into different directories based on their file types.
+#!/bin/bash
+# Chapter1:Exercise 7: Advanced - File Sorting
+# Description:This script sorts files in the Downloads directory into different directories based on their file types and logs the actions.
 # This script will create directories for text files, image files, and audio files, and then move the respective files into these directories, and its destination directory into a file named sorting_log.txt in your Download directory.
 
 # Navigate to the Downloads directory

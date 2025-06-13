@@ -1,0 +1,38 @@
+# File: Ex7-ADVANCE FILE SORTING
+#!/bin/bash 
+# Create a script to sort files in your downloads directory into different directories based on their file types.
+# This script will create directories for text files, image files, and audio files, and then move the respective files into these directories, and its destination directory into a file named sorting_log.txt in your Download directory.
+
+# Navigate to the Downloads directory
+cd ~/Downloads
+# Create directories for text files, image files, and audio files
+
+mkdir -p ~/Downloads/TextFiles ~/Downloads/ImageFiles ~/Downloads/AudioFiles
+
+# use a combination of mv and echo to move files to their respective directories and log the actions in a file named sorting_log.txt in your home directory.
+# Create a log file to record the actions
+touch ~/sorting_log.txt
+# Clear the log file if it already exists
+> ~/sorting_log.txt
+
+# Move files to their respective directories based on file type
+mv ~/Downloads/*.txt ~/Downloads/TextFiles/ && echo "Moved file.txt to TextFiles/" >> ~/sorting_log.txt
+mv ~/Downloads/*.docx ~/Downloads/TextFiles/ && echo "Moved document.docx to TextFiles/" >> ~/sorting_log.txt
+mv ~/Downloads/*.pdf ~/Downloads/TextFiles/ && echo "Moved file.pdf to TextFiles/" >> ~/sorting_log.txt
+mv ~/Downloads/*.docx ~/Downloads/TextFiles/ && echo "Moved document.docx to TextFiles/" >> sorting_log.txt
+mv ~/Downloads/*.jpg ~/Downloads/ImageFiles/ && echo "Moved image.jpg to ImageFiles/" >> ~/sorting_log.txt
+mv ~/Downloads/*.mp3 ~/Downloads/AudioFiles/ && echo "Moved audio.mp3 to AudioFiles/" >> ~/sorting_log.txt
+mv ~/Downloads/*.wav ~/Downloads/AudioFiles/ && echo "Moved audio.wav to AudioFiles/" >> ~/sorting_log.txt
+mv ~/Downloads/*.png ~/Downloads/ImageFiles/ && echo "Moved image.png to ImageFiles/" >> ~/sorting_log.txt
+mv ~/Downloads/*.gif ~/Downloads/ImageFiles/ && echo "Moved image.gif to ImageFiles/" >> ~/sorting_log.txt
+
+# Check if the directories are created and files are moved successfully
+if [ -d ~/Downloads/TextFiles ] && [ -d ~/Downloads/ImageFiles ] && [ -d ~/Downloads/AudioFiles ]; then
+    echo "All directories created successfully."
+else
+    echo "Error creating directories."
+fi
+
+# Notify the user about the completion of the sorting process
+echo "File sorting completed. Check sorting_log.txt for details."
+

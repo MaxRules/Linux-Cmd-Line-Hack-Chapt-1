@@ -2,6 +2,7 @@
 #!/bin/bash
 # Create directories for each subject in the MyWiki directory
 mkdir -p ~/Documents/MyWiki/{Linux, Networking, Scripting}
+
 # Within each directory, create a README.txt file with the following command:
 cd ~/Documents/MyWiki/Linux && echo "Linux Overview" > README.txt
 cd ~/Documents/MyWiki/Networking && echo "Networking Overview" > README.txt

@@ -1,0 +1,53 @@
+#!/bash/bin
+# Basic System Information Report
+# This script collects basic system information and saves it to a file named SystemInfoReport.txt in the documents folder. containing username and a list of directories in the home directory.
+cd ~/Documents
+# Create or clear the SystemInfoReport.txt file
+touch SystemInfoReport.txt
+
+cd ~ && whoami > ~/Documents/SystemInfoReport.txt
+# Append the list of directories in the home directory to the report
+ls -d ~/ >> ~/Documents/SystemInfoReport.txt
+ 
+
+
+# Other system information commands one can add to the report for detailed insights
+# Append the hostname to the report
+echo -e "\nHostname: $(hostname)" >> ~/Documents/SystemInfoReport.txt
+# Append the operating system information to the report
+echo -e "\nOperating System: $(lsb_release -d | awk -F'\t' '{print $2}')" >> ~/Documents/SystemInfoReport.txt
+# Append the current date and time to the report
+echo -e "\nCurrent Date and Time: $(date)" >> ~/Documents/SystemInfoReport.txt
+# Append the system uptime to the report
+echo -e "\nSystem Uptime: $(uptime -p)" >> ~/Documents/SystemInfoReport.txt
+# Append the system load average to the report
+echo -e "\nSystem Load Average: $(uptime | awk -F'load average:' '{ print $2 }')" >> ~/Documents/SystemInfoReport.txt
+# Append the total disk space usage to the report
+echo -e "\nTotal Disk Space Usage:" >> ~/Documents/SystemInfoReport.txt
+df -h >> ~/Documents/SystemInfoReport.txt
+# Append the memory usage to the report
+echo -e "\nMemory Usage:" >> ~/Documents/SystemInfoReport.txt
+free -h >> ~/Documents/SystemInfoReport.txt
+# Append the list of running processes to the report
+echo -e "\nRunning Processes:" >> ~/Documents/SystemInfoReport.txt
+ps aux >> ~/Documents/SystemInfoReport.txt
+# Append the list of installed packages to the report
+echo -e "\nInstalled Packages:" >> ~/Documents/SystemInfoReport.txt
+dpkg --get-selections >> ~/Documents/SystemInfoReport.txt
+# Append the list of network interfaces to the report
+echo -e "\nNetwork Interfaces:" >> ~/Documents/SystemInfoReport.txt
+ip addr >> ~/Documents/SystemInfoReport.txt
+# Append the list of active network connections to the report
+echo -e "\nActive Network Connections:" >> ~/Documents/SystemInfoReport.txt
+ss -tuln >> ~/Documents/SystemInfoReport.txt
+# Append the list of system logs to the report
+echo -e "\nSystem Logs:" >> ~/Documents/SystemInfoReport.txt
+journalctl -n 50 >> ~/Documents/SystemInfoReport.txt
+# Notify the user about the completion of the system information report
+echo "System information report created at ~/Documents/SystemInfoReport.txt"
+# Notify the user about the location of the report
+echo "You can find the system information report at ~/Documents/SystemInfoReport.txt"
+# Notify the user about the script execution
+echo "System information report script executed successfully."
+# End of the script
+# Notify the user about the completion of the report

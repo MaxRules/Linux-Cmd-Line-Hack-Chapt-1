@@ -1,0 +1,45 @@
+#!/bin/bash
+# Kali Linux Directory Discovery
+# Chapter 1
+# Exercise 9: Create a directory named "KaliDiscovery" in the home directory.
+# Inside the "KaliDiscovery" directory, create three subdirectories: "Tools", "Scripts", and "Documentation".
+# In the "Tools" directory, create a file named "ToolList.txt" and write a list of common Kali Linux tools.
+# In the "Scripts" directory, create a file named "ScriptList.txt" and write a list of common Kali Linux scripts.
+# In the "Documentation" directory, create a file named "DocList.txt" and write a list of common Kali Linux documentation resources.
+# Create the main directory
+cd / && mkdir KaliDiscovery
+# Create subdirectories
+mkdir -p ~/KaliDiscovery/{Tools,Scripts,Documentation}
+# Create and populate ToolList.txt
+cat <<EOL > ~/KaliDiscovery/Tools/ToolList.txt
+Nmap
+Metasploit
+Wireshark
+Burp Suite
+Aircrack-ng
+EOL
+
+
+
+
+#aLternative 1 approach to create the directories and files in one command
+cd / 
+mkdir -p ~/KaliDiscovery/{Tools,Scripts,Documentation}
+# Create ToolList.txt with common Kali Linux tools
+cd ~/KaliDiscovery/Tools` && echo -e "Nmap\nMetasploit\nWireshark\nBurp Suite\nAircrack-ng" > ToolList.txt
+# Create ScriptList.txt with common Kali Linux scripts
+cd ~/KaliDiscovery/Scripts && echo -e "nmap_scan.sh\nmetasploit_setup.sh\nwireshark_capture.sh\nburp_suite_config.sh\naircrack_ng_attack.sh" > ScriptList.txt
+# Create DocList.txt with common Kali Linux documentation resources
+cd ~/KaliDiscovery/Documentation && echo -e "Kali Linux Official Documentation\nKali Linux Tools Listing\nKali Linux Forums\nKali Linux GitHub Repository\nKali Linux YouTube Channel" > DocList.txt
+# Notify the user about the creation of the KaliDiscovery directory and its contents 
+
+
+
+#Alternative 2 
+cd /
+mkdir ~/KaliDiscovery
+cd ~/KaliDiscovery
+ls -l
+touch ~/KaliDiscovery/ToolList.txt
+ls
+echo -e  "bin\netc\nvar\ntmsadsdsfp" > ToolList.txt

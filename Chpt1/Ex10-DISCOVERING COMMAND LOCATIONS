@@ -1,0 +1,15 @@
+# Exercise 10: Discovering Command Locations
+# This script will help you discover the locations of various commands, binaries, sources, and manuals and all instances of the grep command on your system.
+# Use the which, whereis, locate commands to find the paths
+# Example usage:
+#   which <command>
+#   whereis <command>
+#   locate <file>
+# Document your findings in a file named "CommandPaths.txt" in the home directory using redirection.
+#!/bin/bash
+which grep > ~/CommandPaths.txt
+whereis grep >> ~/CommandPaths.txt
+#update database for locate if necessary with sudo updatedb
+# Ensure the locate database is updated
+sudo updatedb
+locate grep >> ~/CommandPaths.txt
